@@ -69,14 +69,6 @@ Create name of the service account to use
 {{- end -}}
 
 {{/*
-Create a default fully qualified app name for the postgres requirement.
-*/}}
-{{- define "keycloak.postgresql.fullname" -}}
-{{- $postgresContext := dict "Values" .Values.postgresql "Release" .Release "Chart" (dict "Name" "postgresql") -}}
-{{ include "postgresql.fullname" $postgresContext }}
-{{- end -}}
-
-{{/*
 Create the name for the Keycloak secret.
 */}}
 {{- define "keycloak.secret" -}}
@@ -135,26 +127,6 @@ Create the name for the database password secret key.
 Create environment variables for database configuration.
 */}}
 {{- define "keycloak.dbEnvVars" -}}
-{{- if .Values.keycloak.persistence.deployPostgres }}
-{{- if not (eq "postgres" .Values.keycloak.persistence.dbVendor) }}
-{{ fail (printf "ERROR: 'Setting keycloak.persistence.deployPostgres' to 'true' requires setting 'keycloak.persistence.dbVendor' to 'postgres' (is: '%s')!" .Values.keycloak.persistence.dbVendor) }}
-{{- end }}
-- name: DB_VENDOR
-  value: postgres
-- name: DB_ADDR
-  value: {{ include "keycloak.postgresql.fullname" . }}
-- name: DB_PORT
-  value: "5432"
-- name: DB_DATABASE
-  value: {{ .Values.postgresql.postgresqlDatabase | quote }}
-- name: DB_USER
-  value: {{ .Values.postgresql.postgresqlUsername | quote }}
-- name: DB_PASSWORD
-  valueFrom:
-    secretKeyRef:
-      name: {{ include "keycloak.postgresql.fullname" . }}
-      key: postgresql-password
-{{- else }}
 - name: DB_VENDOR
   value: {{ .Values.keycloak.persistence.dbVendor | quote }}
 {{- if not (eq "h2" .Values.keycloak.persistence.dbVendor) }}
@@ -171,6 +143,5 @@ Create environment variables for database configuration.
     secretKeyRef:
       name: {{ include "keycloak.externalDbSecret" . }}
       key: {{ include "keycloak.dbPasswordKey" . | quote }}
-{{- end }}
 {{- end }}
 {{- end -}}

@@ -45,26 +45,8 @@ spec:
         - name: {{ . }}
       {{- end }}
     {{- end }}
-    {{- if or .Values.keycloak.persistence.deployPostgres .Values.keycloak.extraInitContainers }}
+    {{- if .Values.keycloak.extraInitContainers }}
       initContainers:
-      {{- if .Values.keycloak.persistence.deployPostgres }}
-        - name: wait-for-postgresql
-          image: "{{ .Values.init.image.repository }}:{{ .Values.init.image.tag }}"
-          imagePullPolicy: {{ .Values.init.image.pullPolicy }}
-          securityContext:
-            {{- toYaml .Values.keycloak.containerSecurityContext | nindent 12 }}
-          command:
-            - sh
-            - -c
-            - |
-              until printf "." && nc -z -w 2 {{ include "keycloak.postgresql.fullname" . }} {{ .Values.postgresql.service.port }}; do
-                  sleep 2;
-              done;
-
-              echo 'PostgreSQL OK ✓'
-          resources:
-            {{- toYaml .Values.init.resources | nindent 12 }}
-      {{- end }}
       {{- with .Values.keycloak.extraInitContainers }}
         {{- tpl . $ | nindent 8 }}
       {{- end }}
