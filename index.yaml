@@ -2,15 +2,15 @@ apiVersion: v1
 entries:
   keycloak:
   - apiVersion: v1
-    appVersion: 11.0.2
-    created: "2021-02-05T10:47:21.191803281Z"
+    appVersion: 12.0.4
+    created: "2021-07-12T03:14:13.473012468Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
       repository: https://charts.bitnami.com/bitnami
-      version: 9.1.1
+      version: 10.3.13
     description: Open Source Identity and Access Management For Modern Applications and Services
-    digest: 97ef669744b291c88efad91007a1a2e3f6e884437fc0da081af39c29b9bdef19
+    digest: e580addf937ad988c22a56daef5a9a7a3728e506cee5635051a28f55bfb4bc60
     home: https://www.keycloak.org/
     icon: https://www.keycloak.org/resources/images/keycloak_logo_480x108.png
     keywords:
@@ -31,14 +31,14 @@ entries:
     - https://github.com/jboss-dockerfiles/keycloak
     - https://github.com/bitnami/charts/tree/master/bitnami/postgresql
     urls:
-    - https://github.com/zenaptix-lab/codecentric-helm-charts/releases/download/keycloak-9.9.2/keycloak-9.9.2.tgz
-    version: 9.9.2
+    - https://github.com/zenaptix-lab/codecentric-helm-charts/releases/download/keycloak-11.0.1/keycloak-11.0.1.tgz
+    version: 11.0.1
   mailhog:
-  - apiVersion: v1
+  - apiVersion: v2
     appVersion: v1.0.1
-    created: "2021-02-05T10:47:21.292060194Z"
+    created: "2021-07-12T03:14:13.644418838Z"
     description: An e-mail testing tool for developers
-    digest: b9f9c94fc9d606cbc3ff1769713ff9434588ef90e387b0721606c0ab69954804
+    digest: 032b69feaf1592321a40d4f35761d5f625ffa2518d27b43b5151d0ce9e19f310
     home: http://iankent.uk/project/mailhog/
     icon: https://raw.githubusercontent.com/mailhog/MailHog-UI/master/assets/images/hog.png
     keywords:
@@ -54,7 +54,8 @@ entries:
     name: mailhog
     sources:
     - https://github.com/mailhog/MailHog
+    type: application
     urls:
-    - https://github.com/zenaptix-lab/codecentric-helm-charts/releases/download/mailhog-3.4.0/mailhog-3.4.0.tgz
-    version: 3.4.0
-generated: "2021-02-05T10:47:21.055933986Z"
+    - https://github.com/zenaptix-lab/codecentric-helm-charts/releases/download/mailhog-4.1.0/mailhog-4.1.0.tgz
+    version: 4.1.0
+generated: "2021-07-12T03:14:13.228417114Z"
