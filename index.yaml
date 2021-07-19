@@ -2,15 +2,15 @@ apiVersion: v1
 entries:
   keycloak:
   - apiVersion: v1
-    appVersion: 12.0.4
-    created: "2021-07-12T03:14:13.473012468Z"
+    appVersion: 14.0.0
+    created: "2021-07-19T21:46:29.225508019Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
       repository: https://charts.bitnami.com/bitnami
       version: 10.3.13
     description: Open Source Identity and Access Management For Modern Applications and Services
-    digest: e580addf937ad988c22a56daef5a9a7a3728e506cee5635051a28f55bfb4bc60
+    digest: d863fd701fc48c018b9547d4e5e27f0bba323d3b56638e598ca01922368c65c4
     home: https://www.keycloak.org/
     icon: https://www.keycloak.org/resources/images/keycloak_logo_480x108.png
     keywords:
@@ -31,31 +31,6 @@ entries:
     - https://github.com/jboss-dockerfiles/keycloak
     - https://github.com/bitnami/charts/tree/master/bitnami/postgresql
     urls:
-    - https://github.com/zenaptix-lab/codecentric-helm-charts/releases/download/keycloak-11.0.1/keycloak-11.0.1.tgz
-    version: 11.0.1
-  mailhog:
-  - apiVersion: v2
-    appVersion: v1.0.1
-    created: "2021-07-12T03:14:13.644418838Z"
-    description: An e-mail testing tool for developers
-    digest: 032b69feaf1592321a40d4f35761d5f625ffa2518d27b43b5151d0ce9e19f310
-    home: http://iankent.uk/project/mailhog/
-    icon: https://raw.githubusercontent.com/mailhog/MailHog-UI/master/assets/images/hog.png
-    keywords:
-    - mailhog
-    - mail
-    - smtp
-    - email
-    - e-mail
-    - testing
-    maintainers:
-    - email: unguiculus@gmail.com
-      name: unguiculus
-    name: mailhog
-    sources:
-    - https://github.com/mailhog/MailHog
-    type: application
-    urls:
-    - https://github.com/zenaptix-lab/codecentric-helm-charts/releases/download/mailhog-4.1.0/mailhog-4.1.0.tgz
-    version: 4.1.0
-generated: "2021-07-12T03:14:13.228417114Z"
+    - https://github.com/zenaptix-lab/codecentric-helm-charts/releases/download/keycloak-14.0.0/keycloak-14.0.0.tgz
+    version: 14.0.0
+generated: "2021-07-19T21:46:28.896935168Z"
